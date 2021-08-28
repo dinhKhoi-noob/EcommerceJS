@@ -1,0 +1,34 @@
+{
+  "name": "EcommerceJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "npm run sass",
+    "prod": "concurrently \"npm run build\"  \"npm run start\"",
+    "watch": "node-sass -w public/assets/scss -o public/assets/css",
+    "sass": "sass --watch public/assets/scss:public/assets/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinhKhoi-noob/EcommerceJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinhKhoi-noob/EcommerceJS/issues"
+  },
+  "homepage": "https://github.com/dinhKhoi-noob/EcommerceJS#readme",
+  "dependencies": {
+    "concurrently": "^6.2.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.2",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.12",
+    "sass": "^1.38.2"
+  }
+}
