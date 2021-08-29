@@ -1,0 +1,17 @@
+.category{
+    &-container{
+        display: flex;
+        background-color:#f9f9f9;
+        padding:10px;
+        align-items: center;
+        justify-content: center;
+    }
+    &-list{
+        font-size:13px;
+        font-weight: bold;
+        margin: 0 2%;
+        color: #151515;
+        background-color: transparent;
+        border:none;
+    }
+}

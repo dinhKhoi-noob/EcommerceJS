@@ -1,0 +1,35 @@
+.best-seller{
+    &-container{
+        margin:60px 0;
+        display:flex;
+    }
+    &-products-list{
+        display:flex;
+        flex-direction:row;
+        margin:0 0 0 auto;
+    }
+    &-categories-list{
+        line-height:35px;
+        padding-right:50px;
+        border-right: 1px solid #8a8a8a;
+    }
+    &-title{
+        margin-bottom:30px;
+        font-size: 18px;
+        font-weight: bolder;
+    }
+    &-category
+    {
+        &-item{
+        font-size: 15px;
+        text-decoration: underline;
+        color:#6A983C;
+        }
+        &-button{
+            display:flex;
+            margin-top:43px;
+            font-size: 15px;
+            padding: 10px 10px 10px 20px;
+        }
+    }
+}

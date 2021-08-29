@@ -7,8 +7,8 @@
     "start": "nodemon server.js",
     "build": "npm run sass",
     "prod": "concurrently \"npm run build\"  \"npm run start\"",
-    "watch": "node-sass -w public/assets/scss -o public/assets/css",
-    "sass": "sass --watch public/assets/scss:public/assets/css",
+    "watch": "node-sass -w public/scss -o public/css",
+    "sass": "sass --watch public/scss:public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/dinhKhoi-noob/EcommerceJS#readme",
   "dependencies": {
+    "bootstrap-icons": "^1.5.0",
     "concurrently": "^6.2.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
