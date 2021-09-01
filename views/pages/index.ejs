@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css"/>
     <link rel="shortcut icon" href="/images/icons/logo.jpg" />
+    <link rel="stylesheet" href="/vendor/icons-1.5.0/build/bootstrap-icon.css" crossorigin="anonymous">
     <title>Ecommerce</title>
 </head>
 <body>
     <div class="container">
         <%- include('../libs/header.ejs') %>
-        <%- include('../libs/recepiesList.ejs') %>
-        <%- include('../libs/bestSeller.ejs') %>
-        <%- include('../libs/bestSeller.ejs') %>
+        <div class="body">
+            <%- include("../libs/categoryList.ejs") %>
+            <%- include('../libs/recepiesList.ejs') %>
+            <%- include('../libs/bestSeller.ejs') %>
+            <%- include('../libs/bestSeller.ejs') %>
+            <%- include('../libs/bestSeller.ejs') %>
+            <%- include('../libs/bestSeller.ejs') %>
+        </div>
         <div class="new-products-list">
 
         </div>
         <div class="tags-list">
 
         </div>
-        <div class="footer"></div>
+        <%- include('../libs/footer.ejs') %>
     </div>
 </body>
 </html>

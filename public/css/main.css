@@ -1,7 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap");
 body {
-  margin: 20px 40px;
+  margin: 0;
   font-family: "Inter", sans-serif;
+}
+
+.body {
+  background-image: url("/images/thumbnails/wood.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-y;
+  padding: 100px 0;
 }
 
 /*# sourceMappingURL=main.css.map */

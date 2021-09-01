@@ -1,7 +1,10 @@
 .category-container {
   display: flex;
-  background-color: #f9f9f9;
   padding: 10px;
+  margin: 0 50px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
 }
@@ -9,7 +12,7 @@
   font-size: 13px;
   font-weight: bold;
   margin: 0 2%;
-  color: #151515;
+  padding: 20px 0;
   background-color: transparent;
   border: none;
 }

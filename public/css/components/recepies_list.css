@@ -1,15 +1,18 @@
 .recepies-list {
   display: flex;
-  margin-left: 210px;
+  margin-left: 100px;
 }
 .recepies-list-container {
   margin: 60px 0;
   display: flex;
+  padding-left: 50px;
 }
 .recepies-category-list {
-  line-height: 35px;
-  padding-right: 50px;
-  border-right: 1px solid #8a8a8a;
+  line-height: 30px;
+  padding: 20px 30px 20px 30px;
+  border: none;
+  background-color: white;
+  border-radius: 15px;
 }
 .recepies-title {
   margin-bottom: 30px;
@@ -38,7 +41,10 @@
 }
 .recepies-category-button {
   display: flex;
-  margin-top: 43px;
+  margin-top: 25px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #151515;
   font-size: 15px;
   padding: 10px 10px 10px 20px;
 }

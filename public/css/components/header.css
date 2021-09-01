@@ -1,3 +1,9 @@
+.header-container {
+  background-image: url("/images/thumbnails/thumbnail3.jpg");
+  background-position: center;
+  background-size: contain;
+  padding: 50px 50px 200px 50px;
+}
 .header-top-element {
   font-size: 14px;
   display: grid;
@@ -85,7 +91,7 @@
 }
 .header-customer-navigation-search-bar-button {
   align-items: flex-start;
-  background-color: transparent;
+  background-color: white;
   padding: 5px 15px 10px 0px;
   margin: 0;
   border-radius: 0 5px 5px 0;
