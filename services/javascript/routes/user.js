@@ -2,13 +2,13 @@ const verify = require('../middlewares/authenticate.js');
 const userMiddleware = require('../middlewares/user.js');
 const route = require("express").Router();
 const argon2 = require('argon2');
-const connection = require('../../models/connection.js');
+const connection = require('../../../models/connection.js');
 const jwt = require('jsonwebtoken');
 const randomString = require('randomstring');
-route.get('/',verify, (req, res)=>{
+route.get('/', (req, res)=>{
     try {
         connection.query(`Select username, balance, email, address, total_saving from users where visible_id=${req.userId} and isActive=1`,(err,res)=>{
-            if(res.length <= 0){
+            if(!res || res.length <= 0){
                 return res.status(404).json({success:false,message:"Not found"});
             }
             return res.json({success:true,message:"Successfully",})
@@ -20,10 +20,10 @@ route.get('/',verify, (req, res)=>{
 })
 route.post('/register',userMiddleware.registerMiddleware,async(req,res)=>{
     try {
-        const {username,password,email,address} = req.body;
+        const {username,password,email,address,phone} = req.body;
         const hashPassword = await argon2.hash(password);
         const visibleId = randomString.generate(10);
-        let query = `insert into users (visible_id,username,password,email,address) values('${visibleId}','${username}','${hashPassword}','${email}','${address}')`;
+        let query = `insert into users (visible_id,username,password,email,address,phone) values('${visibleId}','${username}','${hashPassword}','${email}','${address}','${phone}')`;
         connection.query(query,(err,result) => {
             console.log(query);
             if(result){

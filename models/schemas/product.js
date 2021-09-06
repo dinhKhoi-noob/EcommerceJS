@@ -3,12 +3,12 @@ const {
     Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class payments extends Model {
+    class products extends Model {
         static associate(models) {
         }
     };
     //add image_file_id
-    payments.init({
+    products.init({
         id: {
             type: DataTypes.INTEGER,
             auto_increment: true,
@@ -18,17 +18,29 @@ module.exports = (sequelize, DataTypes) => {
             type:DataTypes.VARCHAR(10),
             primaryKey: true
         },
-        order_id:{
-            type:DataTypes.VARCHAR(10),
+        title: {
+            type: DataTypes.VARCHAR(50),
+            uniqueKeys: true
+        },
+        category_id: {
+            type: DataTypes.VARCHAR(10),
             allowNull: false
         },
-        total_payments:{
-            type:DataTypes.INTEGER,
+        price:{
+            type: DataTypes.INTERGER,
             allowNull: false
+        },
+        on_sale:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        sale_percent:{
+            type: DataTypes.INTERGER,
+            defaultValue:0
         }
     }, {
         sequelize,
-        modelName: 'payments',
+        modelName: 'products',
     });
-    return payments;
+    return products;
 };
