@@ -37,8 +37,16 @@ const titleCheck = (req, res, next) => {
         return res.status(500).json({success:false,message:"Internal server error"});
     }
 }
+
+const saleCheck = (req, res, next) => {
+    const {on_sale,sale_percent} = req.body;
+    if(!sale_percent || !on_sale)
+        return res.status(400).json({success: false,message:"Please enter all fields"});
+    next();
+}
 module.exports = {
     nullCheck,
     referenceCheck,
-    titleCheck
+    titleCheck,
+    saleCheck
 };
