@@ -12,7 +12,7 @@ const verify = (req,res,next) => {
     }
     catch(err) {
         console.log(err);
-        return res.status(403).json({sucess:false,message:"Invalid token"});
+        return res.status(403).json({success:false,message:"Invalid token"});
     }
 }
 module.exports = verify;
