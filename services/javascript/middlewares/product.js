@@ -40,7 +40,7 @@ const titleCheck = (req, res, next) => {
 
 const saleCheck = (req, res, next) => {
     const {on_sale,sale_percent} = req.body;
-    if(!sale_percent || !on_sale)
+    if(!sale_percent || !on_sale || on_sale <= 0 || on_sale > 100)
         return res.status(400).json({success: false,message:"Please enter all fields"});
     next();
 }

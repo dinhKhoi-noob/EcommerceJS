@@ -33,16 +33,13 @@ route.get('/',(req, res)=>{
 route.patch('/:id',discountMiddleware.nullCheck,discountMiddleware.dateCheck,discountMiddleware.titleCheck,(req, res)=>{
     const id = req.params.id;
     const {title,date_begin,date_end} = req.body;
+    const dateModified = new Date(Date.now()).toISOString().split('T')[0] + new Date(Date.now()).toLocaleString('en-US', { hour12: false }).split(',')[1]
     try {
-        console.log(`UPDATE discounts SET
-        title = '${title}',
-        date_begin = '${date_begin}',
-        date_end = '${date_end}'
-    WHERE discounts.visible_id = '${id}'`);
         connection.query(`UPDATE discounts SET
             title = '${title}',
             date_begin = '${date_begin}',
-            date_end = '${date_end}'
+            date_end = '${date_end}',
+            date_modified= '${dateModified}'
         WHERE discounts.visible_id = '${id}'`,(err,result)=>{
             if(result)
                 return res.json({success:true,message:"Successfully",visible_id:id});

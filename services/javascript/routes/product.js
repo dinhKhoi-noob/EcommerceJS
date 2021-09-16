@@ -65,12 +65,14 @@ route.get('/:id', (req, res)=>{
 route.patch('/:id',productMiddleware.nullCheck,productMiddleware.referenceCheck,productMiddleware.titleCheck,(req,res)=>{
     const {title,price,category_id,root_category} = req.body;
     const id = req.params.id;
+    const dateModified = new Date(Date.now()).toISOString().split('T')[0] + new Date(Date.now()).toLocaleString('en-US', { hour12: false }).split(',')[1]
     try {
         connection.query(`UPDATE products SET
             title = '${title}',
             category_id = '${category_id}',
             price = ${price},
-            root_category='${root_category}'
+            root_category='${root_category}',
+            date_modified='${dateModified}'
             WHERE products.visible_id = '${id}'`,
         (err,result)=>{
             if(result) {
@@ -85,11 +87,13 @@ route.patch('/:id',productMiddleware.nullCheck,productMiddleware.referenceCheck,
 
 route.patch('/sale/:id',productMiddleware.saleCheck,(req,res)=>{
     const {sale_percent,on_sale} = req.body;
+    const dateModified = new Date(Date.now()).toISOString().split('T')[0] + new Date(Date.now()).toLocaleString('en-US', { hour12: false }).split(',')[1]
     const id = req.params.id;
     try {
         connection.query(`UPDATE products SET
             sale_percent = ${sale_percent},
-            on_sale=${on_sale}
+            on_sale=${on_sale},
+            date_modified='${dateModified}'
             WHERE products.visible_id = '${id}'`,
         (err,result)=>{
             if(result) {
@@ -104,9 +108,11 @@ route.patch('/sale/:id',productMiddleware.saleCheck,(req,res)=>{
 
 route.delete('/:id',(req,res)=>{
     const id = req.params.id;
+    const dateModified = new Date(Date.now()).toISOString().split('T')[0] + new Date(Date.now()).toLocaleString('en-US', { hour12: false }).split(',')[1]
     try {
         connection.query(`UPDATE products SET
-            is_active = '0'
+            is_active = '0',
+            date_modified='${dateModified}'
             WHERE products.visible_id = '${id}'`,
         (err,result)=>{
             if(result) {
