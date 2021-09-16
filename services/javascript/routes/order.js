@@ -4,11 +4,11 @@ const orderMiddleware = require('../middlewares/order.js');
 const connection = require('../../../models/connection.js');
 const route = require("express").Router();
 
-route.post('/',orderMiddleware.nullCheck, orderMiddleware.referenceCheck, orderMiddleware.dateCheck,(req,res)=>{
-    const {user_id,date_created} = req.body;
+route.post('/',orderMiddleware.nullCheck, orderMiddleware.referenceCheck,(req,res)=>{
+    const {user_id} = req.body;
     const visibleId = randomString.generate(10);
     try {
-        return connection.query(`INSERT INTO orders (visible_id, date_created, user_id) VALUES ('${visibleId}', '${date_created}', '${user_id}')`,(err,result)=>{
+        return connection.query(`INSERT INTO orders (visible_id, user_id) VALUES ('${visibleId}', '${date_created}', '${user_id}')`,(err,result)=>{
             if(result)
                 return res.json({success: true,message:"Successfully",visible_id: visibleId});
         })
