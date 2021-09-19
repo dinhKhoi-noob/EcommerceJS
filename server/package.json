@@ -1,0 +1,45 @@
+{
+  "name": "EcommerceJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "init_database": "node ./models/config/init.database.js",
+    "init_table": "npx sequelize-cli db:migrate",
+    "init_data": "npx sequelize-cli db:seed:all",
+    "start": "nodemon server.js",
+    "build": "npm run sass",
+    "prod": "concurrently \"npm run build\"  \"npm run start\"",
+    "watch": "node-sass -w public/scss -o public/css",
+    "sass": "sass --watch public/scss:public/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinhKhoi-noob/EcommerceJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinhKhoi-noob/EcommerceJS/issues"
+  },
+  "homepage": "https://github.com/dinhKhoi-noob/EcommerceJS#readme",
+  "dependencies": {
+    "argon2": "^0.28.2",
+    "bootstrap-icons": "^1.5.0",
+    "concurrently": "^6.2.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.2",
+    "mysql2": "^2.3.0",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.12",
+    "randomstring": "^1.2.1",
+    "sass": "^1.38.2",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+  }
+}

@@ -1,0 +1,41 @@
+.best-seller{
+    &-container{
+        margin:60px 0 0 0;
+        padding: 0 20px 0 50px;
+        display:flex;
+    }
+    &-products-list{
+        display:flex;
+        flex-direction:row;
+        margin:0 0 0 auto;
+    }
+    &-categories-list{
+        line-height: 30px;
+        padding: 20px 30px 20px 30px;
+        border: none;
+        background-color: wheat;
+        border-radius: 15px;
+    }
+    &-title{
+        margin-bottom:30px;
+        font-size: 18px;
+        font-weight: bolder;
+    }
+    &-category
+    {
+        &-item{
+        font-size: 15px;
+        text-decoration: underline;
+        color:#6A983C;
+        }
+        &-button{
+            display:flex;
+            margin-top:25px;
+            background-color:transparent;
+            border-radius:5px;
+            border:1px solid #151515;
+            font-size: 15px;
+            padding: 10px 10px 10px 20px;
+        }
+    }
+}
