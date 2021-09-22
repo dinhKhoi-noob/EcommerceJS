@@ -1,11 +1,10 @@
-.recepies{
+.recipes{
     &-list{
         display:flex;
-        margin-left:100px;
         &-container{
             margin:60px 0;
-            display:flex;
-            padding-left: 50px;
+            // display:flex;
+            // padding-left: 50px;
             // justify-content:center;
         }
     }
@@ -17,9 +16,15 @@
         border-radius: 15px;
     }
     &-title{
-        margin-bottom:30px;
-        font-size: 18px;
+        color:white;
+        font-weight: bold;
+        background-color: #456854;
+        font-size: 35px;
+        text-transform: uppercase;
+        margin:40px;
+        font-size: 35px;
         font-weight: bolder;
+        padding-left:60px;
     }
     &-view-button{
         display:flex;

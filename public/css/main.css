@@ -1,15 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Raleway:wght@200&display=swap");
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
 }
 
-.body {
-  background-image: url("/images/thumbnails/wood3.jpg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: repeat-y;
-  padding: 100px 0;
+.product-header {
+  font-size: 50px;
+  position: relative;
+  z-index: 20;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  color: white;
+  margin: 100px 30px;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 /*# sourceMappingURL=main.css.map */

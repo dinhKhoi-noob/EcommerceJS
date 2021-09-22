@@ -1,25 +1,28 @@
-.recepies-list {
+.recipes-list {
   display: flex;
-  margin-left: 100px;
 }
-.recepies-list-container {
+.recipes-list-container {
   margin: 60px 0;
-  display: flex;
-  padding-left: 50px;
 }
-.recepies-category-list {
+.recipes-category-list {
   line-height: 30px;
   padding: 20px 30px 20px 30px;
   border: none;
   background-color: wheat;
   border-radius: 15px;
 }
-.recepies-title {
-  margin-bottom: 30px;
-  font-size: 18px;
+.recipes-title {
+  color: white;
+  font-weight: bold;
+  background-color: #456854;
+  font-size: 35px;
+  text-transform: uppercase;
+  margin: 40px;
+  font-size: 35px;
   font-weight: bolder;
+  padding-left: 60px;
 }
-.recepies-view-button {
+.recipes-view-button {
   display: flex;
   margin-top: 43px;
   font-size: 15px;
@@ -29,17 +32,17 @@
   border-radius: 5px;
   color: wheat;
 }
-.recepies-view-button:hover {
+.recipes-view-button:hover {
   background-color: wheat;
   color: #151515;
   border: 1px solid #151515;
 }
-.recepies-category-item {
+.recipes-category-item {
   font-size: 15px;
   text-decoration: underline;
   color: #6A983C;
 }
-.recepies-category-button {
+.recipes-category-button {
   display: flex;
   margin-top: 25px;
   background-color: transparent;

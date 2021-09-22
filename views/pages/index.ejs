@@ -12,13 +12,15 @@
 <body>
     <div class="container">
         <%- include('../libs/header.ejs') %>
+        <%- include("../libs/categoryList.ejs") %>
+        <%- include('../libs/introduction.ejs') %>
         <div class="body">
-            <%- include("../libs/categoryList.ejs") %>
-            <%- include('../libs/recepiesList.ejs') %>
-            <%- include('../libs/bestSeller.ejs') %>
-            <%- include('../libs/bestSeller.ejs') %>
-            <%- include('../libs/bestSeller.ejs') %>
-            <%- include('../libs/bestSeller.ejs') %>
+            <%- include('../libs/services.ejs') %>
+            <%- include('../libs/recipesList.ejs') %>
+            <%- include('../libs/bestSeller.ejs',{type:'breakfast'}) %>
+            <%- include('../libs/bestSeller.ejs',{type:'lunch'}) %>
+            <%- include('../libs/bestSeller.ejs',{type:'dinner'}) %>
+            <%- include('../libs/bestSeller.ejs',{type:'party'}) %>
             <%- include('../libs/productViewSection.ejs') %>
         </div>
         <div class="new-products-list">
@@ -30,5 +32,7 @@
         <%- include('../libs/footer.ejs') %>
     </div>
     <script src="/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/slideshow.js"></script>
 </body>
 </html>
