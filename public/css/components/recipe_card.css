@@ -2,6 +2,7 @@
   width: 400px;
   margin: 0 3%;
   height: 250px;
+  transition: 0.5s;
 }
 .recipe-card-container:hover .recipe-card-background-color {
   -webkit-animation-name: fadeIn8;
@@ -42,7 +43,7 @@
 .recipe-card-background {
   position: relative;
   height: 250px;
-  background-image: url("/images/recepies/pepperoni.jpg");
+  background-image: url("/images/recipes/pepperoni.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

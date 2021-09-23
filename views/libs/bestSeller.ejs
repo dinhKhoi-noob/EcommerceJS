@@ -1,13 +1,11 @@
 <link rel="stylesheet" type="text/css" href="/css/components/best_seller.css"/>
-<div class="best-seller-container">
-    <div class="best-seller-categories-list">
-        <div class="best-seller-title">Best selling products</div>
-        <div class="best-seller-category-item">Product 1</div>
-        <div class="best-seller-category-item">Product 2</div>
-        <div class="best-seller-category-item">Product 3</div>
-        <div class="best-seller-category-item">Product 4</div>
-        <div class="best-seller-category-item">Product 5</div>
-        <button class="best-seller-category-button">More products<image style="margin-left: 20px;" src="/images/icons/caret-right-fill.svg"/></button>
+<div class="best-seller-container bg-<%=type%>">
+    <div class="product-header">
+        <% if(type==='party'){ %>
+        Hold on a party and have memorable moments
+        <%}else{%>
+            <%=type%>
+        <%}%>
     </div>
     <div class="best-seller-products-list">
         <%- include('./productItem.ejs') %>
@@ -15,4 +13,7 @@
         <%- include('./productItem.ejs') %>
         <%- include('./productItem.ejs') %>
     </div>
+    <button class="best-seller-bot-btn">
+        View more
+    </button>
 </div>

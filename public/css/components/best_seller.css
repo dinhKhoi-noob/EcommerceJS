@@ -1,12 +1,26 @@
 .best-seller-container {
-  margin: 60px 0 0 0;
-  padding: 0 20px 0 50px;
-  display: flex;
+  margin: 20px 40px;
+  background-image: url("/images/thumbnails/bg-breakfast.jpg");
+  background-size: cover;
+  padding: 30px 0 120px 0;
+  position: relative;
+  z-index: 20;
+}
+.best-seller-container::before {
+  background-color: #151515;
+  position: absolute;
+  z-index: 10;
+  opacity: 0.7;
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 .best-seller-products-list {
   display: flex;
   flex-direction: row;
-  margin: 0 0 0 auto;
+  margin: 0;
 }
 .best-seller-categories-list {
   line-height: 30px;
@@ -33,6 +47,33 @@
   border: 1px solid #151515;
   font-size: 15px;
   padding: 10px 10px 10px 20px;
+}
+.best-seller-bot-btn {
+  font-size: 40px;
+  color: yellowgreen;
+  border: 1px solid yellowgreen;
+  font-weight: normal;
+  margin: 80px 0 0 20px;
+  background-color: transparent;
+  padding: 10px;
+  position: relative;
+  z-index: 20;
+}
+
+.bg-breakfast {
+  background-image: url("/images/thumbnails/bg-breakfast.jpg");
+}
+
+.bg-lunch {
+  background-image: url("/images/thumbnails/bg-lunch.jpg");
+}
+
+.bg-dinner {
+  background-image: url("/images/thumbnails/bg-dinner.jpg");
+}
+
+.bg-party {
+  background-image: url("/images/thumbnails/bg-party.jpg");
 }
 
 /*# sourceMappingURL=best_seller.css.map */

@@ -1,16 +1,10 @@
-let slideIndex = 0;
-const showSlides = () =>{
-    let i;
-    const slides = document.getElementsByClassName("slide-fade-element");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) 
-    {
-        slideIndex = 1
-    }    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 3000);
-}
-showSlides();
+$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+  .fadeOut(1500)
+  .next()
+  .fadeIn(1500)
+  .end()
+  .appendTo('#slideshow');
+}, 5000);

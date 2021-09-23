@@ -1,59 +1,67 @@
 .product-item-container {
   border: none;
-  background-color: wheat;
-  border-radius: 10px;
-  padding: 10px 0 15px 0;
-  width: 239px;
-  height: 300px;
-  margin: 0 1%;
+  transition: 0.6s;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 40px;
+  position: relative;
+  z-index: 20;
+  margin: 0 1.3%;
+  color: white;
+  width: 40%;
+  border: 2px solid yellowgreen;
 }
-.product-item-information-container {
-  margin: 10px 0 10px 20px;
+.product-item-container:hover {
+  background-color: white;
+  color: black;
+  transform: translate(0px, -10px) scale(1.05);
+}
+.product-item-container:hover .product-item-pricing-btn {
+  background-color: white;
 }
 .product-item-title {
   line-height: 27px;
   font-weight: bold;
-  font-size: 16px;
-}
-.product-item-image {
-  margin: 5px 0 0 15.5px;
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  margin: 10px 0;
 }
 .product-item-image-size {
-  border-radius: 7px;
-  width: 190px;
-  height: 150px;
+  width: 100%;
 }
 .product-item-desc {
-  font-size: 12px;
+  font-size: 15px;
 }
 .product-item-pricing {
   display: flex;
-  position: absolute;
-  width: 200px;
+  line-height: 1.5rem;
+  padding: 0 20px;
+  justify-content: space-between;
 }
 .product-item-pricing-price {
-  line-height: 27px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 25px;
 }
 .product-item-pricing-container {
   text-align: left;
 }
 .product-item-pricing-sale-price {
   text-decoration: line-through;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: lighter;
 }
 .product-item-pricing-btn {
-  position: relative;
-  right: -38%;
-  background-color: #6A983C;
   padding: 5px 20px;
-  border: 1px solid #6A983C;
-  color: #f9f9f9;
+  border: 1px solid yellowgreen;
   font-size: 17px;
-  font-weight: bold;
+  color: yellowgreen;
   border-radius: 5px;
+  background-color: transparent;
+  transition: 0.3s;
+}
+.product-item-pricing-btn:hover {
+  background-color: yellowgreen !important;
+  color: white;
 }
 
 /*# sourceMappingURL=product_item.css.map */
