@@ -3,6 +3,7 @@
         width: 400px;
         margin:0 3%;
         height:250px;
+        transition:.5s;
         // position: absolute;
         &:hover{
             .recipe-card-background-color{

@@ -1,17 +1,28 @@
 .product-item{
     &-container{
         border: none;
+        transition:0.6s;
         text-align: center;
         // border-radius: 10px;
         padding:10px;
+        padding-bottom: 40px;
         position: relative;
         z-index: 20;
         // width: 239px;
         // height: 300px;
         margin:0 1.3%;
-        background-color:white;
-        width: 300px;
-        box-shadow: 0 0 5px 0 #151515;
+        color: white;
+        width: 40%;
+        border:2px solid yellowgreen;
+        
+    }
+    &-container:hover{
+        background-color: white;
+        color: black;
+        transform: translate(0px,-10px) scale(1.05);
+        .product-item-pricing-btn{
+            background-color: white;
+        }
     }
     &-information-container{
         // margin: 10px 0 10px 20px;
@@ -21,13 +32,14 @@
     &-title{
         line-height: 27px;
         font-weight: bold;
+        font-family: 'Raleway', sans-serif;
         font-size:24px;
         margin: 10px 0;
     }
     &-image{
         &-size{
             // border-radius: 7px;
-            width:260px;
+            width:100%;
         }
     }
     &-desc{
@@ -53,10 +65,16 @@
         }
         &-btn{
             padding: 5px 20px;
-            border: 1px solid darkgreen;
+            border: 1px solid yellowgreen;
             font-size: 17px;
-            color: darkgreen;
+            color: yellowgreen;
             border-radius: 5px;
+            background-color: transparent;
+            transition:.3s;
+            &:hover{
+                background-color: yellowgreen !important;
+                color: white;    
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
   width: 400px;
   margin: 0 3%;
   height: 250px;
+  transition: 0.5s;
 }
 .recipe-card-container:hover .recipe-card-background-color {
   -webkit-animation-name: fadeIn8;

@@ -10,7 +10,7 @@
   background-color: #151515;
   position: absolute;
   z-index: 10;
-  opacity: 0.3;
+  opacity: 0.7;
   content: "";
   top: 0px;
   right: 0px;
@@ -47,6 +47,17 @@
   border: 1px solid #151515;
   font-size: 15px;
   padding: 10px 10px 10px 20px;
+}
+.best-seller-bot-btn {
+  font-size: 40px;
+  color: yellowgreen;
+  border: 1px solid yellowgreen;
+  font-weight: normal;
+  margin: 80px 0 0 20px;
+  background-color: transparent;
+  padding: 10px;
+  position: relative;
+  z-index: 20;
 }
 
 .bg-breakfast {
