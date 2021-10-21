@@ -1,0 +1,28 @@
+.item-row {
+  display: flex;
+  margin: 5% 0;
+  padding-bottom: 3%;
+}
+
+.order-item-info {
+  width: 100%;
+  font-size: 22px;
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-item-list-container {
+  width: 58%;
+}
+.order-item-list-row {
+  border-bottom: 1px solid #151515;
+  height: 100px;
+}
+.order-item-quantity-group {
+  display: flex;
+  width: 16%;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=order_item_list.css.map */

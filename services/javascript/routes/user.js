@@ -5,13 +5,14 @@ const argon2 = require('argon2');
 const connection = require('../../../models/connection.js');
 const jwt = require('jsonwebtoken');
 const randomString = require('randomstring');
-route.get('/', (req, res)=>{
+route.get('/:id', (req, res)=>{
     try {
-        connection.query(`Select username, balance, email, address, total_saving from users where visible_id=${req.userId} and isActive=1`,(err,res)=>{
-            if(!res || res.length <= 0){
+        // console.log(req.params.id);
+        connection.query(`Select username, balance, email, address, total_saving from users where visible_id=${req.params.id}`,(err,result)=>{
+            if(!result || result.length <= 0){
                 return res.status(404).json({success:false,message:"Not found"});
             }
-            return res.json({success:true,message:"Successfully",})
+            return res.json({success:true,message:"Successfully",result})
         });
     } catch (error) {
         console.log(error);

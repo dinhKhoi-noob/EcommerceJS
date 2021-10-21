@@ -1,0 +1,96 @@
+.order-list-container {
+  background-color: white;
+  width: 600px;
+  position: absolute;
+  top: 160px;
+  right: 1%;
+  padding: 2% 1%;
+  box-shadow: 0 0 2px 0;
+  border-radius: 15px;
+}
+.order-list-header {
+  text-align: center;
+  font-size: 30px;
+  color: darkgreen;
+  font-weight: bold;
+  height: 30px;
+  margin-bottom: 5%;
+}
+.order-list-table {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.order-list-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin: 3% 0;
+  border-bottom: 1px solid;
+  padding-bottom: 3%;
+}
+.order-list-thumbnail {
+  width: 20%;
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+}
+.order-list-title {
+  width: 30%;
+}
+.order-list-quantity-section {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-list-quantity-input {
+  width: 30px;
+  text-align: center;
+}
+.order-list-price {
+  width: 10%;
+}
+.order-list-total-item-price {
+  width: 10%;
+}
+.order-list-footer {
+  display: flex;
+  flex-direction: column;
+}
+.order-list-total-section {
+  text-align: end;
+  line-height: 2rem;
+  padding: 0 5%;
+  width: 260px;
+  position: relative;
+  right: -45%;
+  margin: 5% 0;
+}
+.order-list-total-group {
+  display: flex;
+  justify-content: space-between;
+}
+.order-list-total-amount {
+  font-weight: bold;
+  font-size: 20px;
+}
+.order-list-redirect-btn {
+  text-align: center;
+  color: darkgreen;
+  font-weight: bold;
+  text-decoration: none;
+}
+.order-list-redirect-btn:visited {
+  color: darkgreen;
+}
+
+.h-30 {
+  height: 30px;
+}
+
+.text-left {
+  text-align: start;
+}
+
+/*# sourceMappingURL=order_list.css.map */

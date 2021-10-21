@@ -23,8 +23,8 @@ route.post('/',categoryMiddleware.postCategory, (req, res)=>{
 });
 route.get('/',(req, res)=>{
     try {
-        connection.query(`select visible_id,title,category_id from categories`,(err,result)=>{
-            if(result.length > 0) 
+        connection.query(`select visible_id,title,category_id from categories order by id`,(err,result)=>{
+            if(result.length > 0)
                 return res.json({success:true,message: "Successfully",result});
             return res.status(404).json({success:false,message: "Not found"});
         });
@@ -32,16 +32,13 @@ route.get('/',(req, res)=>{
         return res.status(500).json({success:false,message: "Internal server error"});
     }
 });
-route.get('/:name',(req, res)=>{
+route.get('/:id',(req, res)=>{
     try {
-        const name = req.params.name;
-        connection.query(`select visible_id,title,category_id from categories where title='${name}'`,(err,result)=>{
-            if(result.length < 1)
+        const id = req.params.id;
+        connection.query(`select visible_id,title,category_id from categories where visible_id='${id}'`,(err,result)=>{
+            if(!result || result.length < 1)
                 return res.status(404).json({success:false,message:"Invalid reference"});
-            let id = result[0].visible_id;
-            connection.query(`select visible_id,title,category_id from categories where category_id='${id}'`,(err,result)=>{
-                return res.json({success:true,message:"Successfully",result})
-            })
+            return res.json({success:true,message:"Successfully",result})
         });   
     } catch (error) {
         console.log(error);

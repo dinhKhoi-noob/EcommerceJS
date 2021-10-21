@@ -5,10 +5,11 @@ const connection = require('../../../models/connection.js');
 const route = require("express").Router();
 
 route.post('/',productMiddleware.nullCheck, productMiddleware.referenceCheck, productMiddleware.titleCheck, (req, res) => {
-    const {title,price,category_id,root_category} = req.body;
+    const {title,price,category_id,root_category,thumbnail,service} = req.body;
+    console.log(title,price,category_id,root_category,thumbnail,service);
     try {
         const visibleId = randomString.generate(10);
-        connection.query(`INSERT INTO products (visible_id, title, category_id, price,root_category) VALUES ('${visibleId}', '${title}', '${category_id}','${price}','${root_category}')`,(err,result)=>{
+        connection.query(`INSERT INTO products (visible_id, title, category_id, price,root_category,service,thumbnail) VALUES ('${visibleId}', '${title}', '${category_id}','${price}','${root_category}','${service}','${thumbnail}')`,(err,result)=>{
             if(result) {
                 return res.json({success: true,message:"Successfully",visible_id: visibleId});
             }
@@ -26,12 +27,74 @@ route.get('/',(req,res)=>{
     let toIndex = req.query.from < req.query.to ? req.query.to : req.query.from;
     fromIndex = (fromIndex<0 || !fromIndex)?0:fromIndex;
     toIndex = !toIndex?1000:toIndex;
-    const queryString = `SELECT visible_id,title,category_id,price FROM products where is_active=1 and on_sale=${discountSearch} ${searchString?` and title LIKE '%${searchString}%' ` :""} limit ${fromIndex},${toIndex}`;
+    const queryString = `SELECT visible_id,title,category_id,price,thumbnail,sale_percent FROM products where is_active=1 and on_sale=${discountSearch} ${searchString?` and title LIKE '%${searchString}%' ` :""} limit ${fromIndex},${toIndex}`;
     try {
         return connection.query(queryString,(err,result)=>{
             if(result && result.length > 0)
                 return res.json({success:true,message:"Successfully",result});
             return res.status(404).json({success:false,message:"Not found"})
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({success:false,message:"Internal server error"});
+    }
+})
+
+route.get('/detail/:id',(req,res)=>{
+    const id = req.params.id;
+    if(!id || id === '') 
+    {
+        return res.status(400).json({success:false,message:"Missing parameter"});
+    }
+    try {
+        connection.query(`SELECT visible_id,title,category_id,price,sale_percent,thumbnail FROM products where visible_id = '${id}'`,(err,result)=>{
+            if(result && result.length > 0)
+            {
+                return res.json({success:true,message:"Successfully",result});
+            }
+            res.status(404).json({success:false,message:"Not found"});
+        });   
+    } catch (error) {
+        return res.status(500).json({success:false,message:"Internal server failed"});
+    }
+})
+
+route.get('/service', (req, res)=>{
+    const service = req.query.service;
+    let fromIndex = req.query.from < req.query.to ? req.query.from : req.query.to;
+    let toIndex = req.query.from < req.query.to ? req.query.to : req.query.from;
+    fromIndex = (fromIndex<0 || !fromIndex)?0:fromIndex;
+    toIndex = !toIndex?1000:toIndex;
+    const queryString = `SELECT visible_id,title,category_id,price,sale_percent,thumbnail FROM products where service=${service} and is_active=1 and category_id != 'fr7Kz8YXh6' and category_id != 'NarzfUXo1v' limit ${fromIndex},${toIndex}`;
+    console.log(queryString);
+    try {
+        return connection.query(queryString,(err,result)=>{
+            if(result && result.length > 0)
+                return res.json({success:true,message:"Successfully",result});
+            return res.status(404).json({success:false,message:"Not found"});
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({success:false,message:"Internal server error"});
+    }
+})
+
+route.get('/all/:id', (req, res)=>{
+    const searchString = req.query.search;
+    const rootSearch = req.query.root;
+    const criteria = (rootSearch === 0 || !rootSearch)?"category_id":"root_category";
+    const id = req.params.id;
+    let fromIndex = req.query.from < req.query.to ? req.query.from : req.query.to;
+    let toIndex = req.query.from < req.query.to ? req.query.to : req.query.from;
+    fromIndex = (fromIndex<0 || !fromIndex)?0:fromIndex;
+    toIndex = !toIndex?1000:toIndex;
+    const queryString = `SELECT visible_id,title,category_id,price,sale_percent,thumbnail FROM products where ${criteria}='${id}' and is_active=1 ${searchString?" and title LIKE '%${searchString}% '" :""} limit ${fromIndex},${toIndex}`;
+    console.log(queryString);
+    try {
+        return connection.query(queryString,(err,result)=>{
+            if(result && result.length > 0)
+                return res.json({success:true,message:"Successfully",result});
+            return res.status(404).json({success:false,message:"Not found"});
         });
     } catch (error) {
         console.log(error);
@@ -49,7 +112,8 @@ route.get('/:id', (req, res)=>{
     let toIndex = req.query.from < req.query.to ? req.query.to : req.query.from;
     fromIndex = (fromIndex<0 || !fromIndex)?0:fromIndex;
     toIndex = !toIndex?1000:toIndex;
-    const queryString = `SELECT visible_id,title,category_id,price FROM products where ${criteria}='${id}' and is_active=1 and on_sale=${discountSearch} ${searchString?" and title LIKE '%${searchString}% '" :""} limit ${fromIndex},${toIndex}`;
+    const queryString = `SELECT visible_id,title,category_id,price,sale_percent,thumbnail FROM products where ${criteria}='${id}' and is_active=1 and on_sale=${discountSearch} ${searchString?" and title LIKE '%${searchString}% '" :""} limit ${fromIndex},${toIndex}`;
+    console.log(queryString);
     try {
         return connection.query(queryString,(err,result)=>{
             if(result.length > 0)

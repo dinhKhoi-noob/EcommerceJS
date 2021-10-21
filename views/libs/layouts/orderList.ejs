@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/css/components/layouts/order_list.css">
+<div class="order-list-container" id="order-list-container">
+    <div class="order-list-header">
+        Order List
+    </div>
+    <div class="order-list-card h-30">
+        <div class="order-list-thumbnail">
+
+        </div>
+        <strong class="order-list-title text-left">
+            Title
+        </strong>
+        <strong class="order-list-quantity-section">
+            Quantity
+        </strong>
+        <strong class="order-list-price">
+            Price
+        </strong>
+        <strong class="order-list-total-item-price">
+            Total
+        </strong>
+    </div>
+    <div class="order-list-table" id="order-list-table">
+        <%for(let i = 0;i < 5;i++){%>
+        <div class="order-list-card">
+            <div class="order-list-thumbnail" style="background-image: url('/images/product-images/noodles-breakfast-bun-bo-hue.jpg');">
+
+            </div>
+            <div class="order-list-title">
+                Bun bo hue
+            </div>
+            <div class="order-list-quantity-section">
+                <!-- <i class="fas fa-minus-circle order-list-btn-decrease" id="order-list-btn-decrease_${element.id}"></i> -->
+                <i class="fas fa-minus-circle order-list-btn-decrease"></i>
+                <div class="order-list-quantity">
+                    <input type="text" value="1" class="order-list-quantity-input">
+                </div>
+                <i class="fas fa-plus-circle order-list-btn-increase"></i>
+                <!-- <i class="fas fa-plus-circle order-list-btn-increase" id="order-list-btn-increase_${element.id}"></i> -->
+            </div>
+            <div class="order-list-price">
+                5
+            </div>
+            <div class="order-list-total-item-price">
+                $5
+            </div>
+        </div>
+        <%}%>
+    </div>
+    <div class="order-list-footer">
+        <div class="order-list-total-section">
+            <div class="order-list-total-group">
+                <strong>
+                    Total order items: 
+                </strong>
+                <div class="order-list-items">
+                    10
+                </div>
+            </div>
+            <div class="order-list-total-group">
+                <strong>
+                    Total order amount: 
+                </strong>   
+                <div class="order-list-total-amount">
+                    $200
+                </div>
+            </div>
+        </div>
+        <a href="" class="order-list-redirect-btn">Checkout</a>
+    </div>
+</div>

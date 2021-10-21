@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/components/checkout/order_item_list.css"/>
+<div class="order-item-list-container">
+    <%for(let i = 0;i < 5;i++){%>
+        <div class="order-item-list-row item-row">
+            <img class="order-item-thumbnail" src="/images/product-images/bbq.jpg" alt="thumbnail"/>
+            <div class="order-item-info">
+                <div class="order-item-title">
+                    Lorem
+                </div>
+                <div class="order-item-price">
+                    30
+                </div>
+                <div class="order-item-quantity-group">
+                    <i class="fas fa-minus-circle" id="order-btn-decrease"></i>
+                    <div class="product-quantity">
+                        2
+                    </div>
+                    <i class="fas fa-plus-circle" id="order-btn-increase"></i>
+                </div>
+                <div class="order-item-total">
+                    60
+                </div>
+                <i class="fas fa-times-circle" id="order-btn-remove"></i>
+            </div>
+        </div>
+    <%}%>
+</div>
